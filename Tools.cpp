@@ -3,21 +3,19 @@
 #include <algorithm>
 #include <filesystem>
 #include <fstream>
+#include <regex>
 
 #include "Tools.h"
 
 using namespace std;
 
-vector<string> Tools::SplitString(string targetString, char splitBy)
+void Tools::SplitString(vector<string>& vectorToStore, string targetString, char splitBy)
 {
     stringstream targetStringStream(targetString);
-    vector<string> targetStringSplit;
     string segment;
         
     while (getline(targetStringStream, segment, splitBy))
-        targetStringSplit.push_back(segment);
-    
-    return targetStringSplit;
+        vectorToStore.push_back(segment);
 }
 
 bool Tools::CopyFileToWorkingDirectory(string path, string& newPath)
@@ -133,4 +131,10 @@ void Tools::BoolToString(bool targetBool, string& targetString)
 void Tools::StringToBool(string targetString, bool& targetBool)
 {
     targetBool = targetString == "true";
+}
+
+void Tools::ReplaceSubstring(string& targetString, string toReplace, string replaceWith)
+{
+    string intermediateString = regex_replace(targetString, regex(toReplace), replaceWith);
+    targetString = intermediateString;
 }
