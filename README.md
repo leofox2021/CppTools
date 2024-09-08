@@ -2,7 +2,7 @@
 
 Tools.h: A collection of useful methods for C++.
 
-Time.h: Since we don't have an easy method to access system time in C++, I decided to create my own struct to retreive system time using Windows's set of tools provided for C++/CLI.
+Time.h: Since we don't have an easy method to access system time in C++, I decided to create my own struct to retreive system time using Windows' set of tools provided for C++/CLI.
 
 ---
 # Important warning
